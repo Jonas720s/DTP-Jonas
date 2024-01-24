@@ -22,3 +22,26 @@ jobs:
     - name: Print contents of LineNumbers.txt
       shell: pwsh
       run: Get-Content ./Powershell/LineNumbers.txt
+
+    - uses: actions/checkout@v2
+    - name: Check for Deployment.ps1
+      shell: pwsh
+      run: |
+        if (-Not (Test-Path ./Deployment.ps1)) {
+          throw "Deployment.ps1 not found in the root directory."
+        }
+    - name: Run Pester Tests
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -SkipPublisherCheck
+        Invoke-Pester ./Deployment.ps1 -PesterOption @{IncludeVSCodeMarker=$true}
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests after build
+      shell: pwsh
+      run: |
+        # Ihr Test-Skript hier
