@@ -42,6 +42,7 @@ This is line 41.
 This is line 42.
 This is line 43.
 This is line 44.
+Hans was here.
 This is line 45.
 This is line 46.
 This is line 47.
