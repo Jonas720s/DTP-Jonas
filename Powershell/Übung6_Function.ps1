@@ -33,3 +33,4 @@ function WriteTempFilesToLog {
         Write-Log -Message "File found: $($file.Name)" -MessageType "Info"
     }
 }
+WriteTempFilesToLog
