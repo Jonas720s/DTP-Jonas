@@ -1,0 +1,4 @@
+# .gitignore
+
+# Ignoriere das password.txt-File
+password.txt
